@@ -188,7 +188,7 @@ async function getWallet(init) {
 
     const walletsArray = dataArray.filter(user => user.role === 'agent').map(agent => agent.wallets);
     wallets = walletsArray
-    console.log(wallets)
+
     if(wallets.length !== 0 ){
       if(init === 'init'){
         return walletsArray[0][0].number
@@ -221,6 +221,7 @@ async function getWallet(init) {
 }
 
 let currentWallet = undefined;
+let walletName = undefined;
 
 async function initWallet (){
    currentWallet = await getWallet('init');

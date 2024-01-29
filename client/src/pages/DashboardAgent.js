@@ -172,7 +172,7 @@ const DashboardAgent = () =>{
             const jsonManagerData = await managerData.json();
             const jsonAgentsData = await agentsReponse.json();
             
-            const filteredData = jsonData.filter((item) => (item.status === false && item.wallet === wallet));
+            const filteredData = jsonData;
             let filteredDataHistory = undefined
             if(role === 'agent'){
                 filteredDataHistory = jsonHistoryData.filter((item) => item.wallet === wallet);
@@ -183,7 +183,7 @@ const DashboardAgent = () =>{
             filteredDataHistory.map((item) => amounts = amounts + parseInt(item.montant))
 
             setTotal(amounts)
-            setData(filteredData);
+            setData(jsonData);
             setDataHistory(filteredDataHistory);
             setManagerData(jsonManagerData);
             setAgents(jsonAgentsData);
@@ -271,7 +271,7 @@ const DashboardAgent = () =>{
                     
                     setData((prevData) => prevData.filter((item) => item.id !== id));
                     
-                    montant = solde + parseInt(montant)
+                    montant = solde - parseInt(montant)
                     setSolde(montant)
                     
 
