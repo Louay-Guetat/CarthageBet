@@ -1,0 +1,104 @@
+.Paiement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #171c2c;
+  color: white;
+  text-align: right;
+  direction: rtl;
+  font-size: 18px;
+}
+.Paiement #logo {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.Paiement .content {
+  margin: 2rem;
+  padding: 2rem;
+}
+.Paiement .content .paiement-header .paiement-method {
+  background-color: #272c3b;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.Paiement .content .paiement-header .paiement-method img {
+  width: 80px;
+  height: 80px;
+}
+.Paiement .content .paiement-header .paiement-method .vertical-line {
+  width: 1px;
+  height: 100px;
+  background-color: #171c2c;
+  margin: 20px;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info {
+  display: block;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info .top-side {
+  display: flex;
+  gap: 23.5rem;
+  flex-wrap: wrap;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info .horizontal-line {
+  border: none;
+  border-top: 1px solid #171c2c;
+  margin: 10px 0;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info .bottom-side {
+  display: block;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info .bottom-side .prices-tags {
+  display: flex;
+  gap: 23.5rem;
+}
+.Paiement .content .paiement-header .paiement-method .paiment-info .bottom-side .prices {
+  display: flex;
+  gap: 25rem;
+  flex-wrap: wrap;
+}
+.Paiement .content .formulaire {
+  display: flex;
+  flex-direction: column;
+}
+.Paiement .content .formulaire input {
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  background-color: rgb(54, 52, 52);
+  color: rgb(185, 183, 183);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Paiement .content .formulaire button {
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  background-color: rgb(34, 33, 33);
+  color: gray;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 7px;
+}
+.Paiement .content .formulaire button:hover {
+  background-color: #3c3a3a;
+}
+
+@media only screen and (max-width: 829px) {
+  .Paiement {
+    font-size: 14px;
+  }
+  .Paiement .content .paiement-header .paiement-method .paiment-info .top-side,
+  .Paiement .content .paiement-header .paiement-method .paiment-info .bottom-side .prices-tags,
+  .Paiement .content .paiement-header .paiement-method .paiment-info .bottom-side .prices {
+    display: flex;
+    gap: 2rem;
+  }
+}

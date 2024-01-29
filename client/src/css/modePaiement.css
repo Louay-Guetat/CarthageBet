@@ -1,0 +1,70 @@
+.Mode-Paiement {
+  background-color: #171c2c;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.Mode-Paiement #logo {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.Mode-Paiement .content {
+  display: flex;
+}
+.Mode-Paiement .content .modes-card {
+  background-color: #1e2539;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.Mode-Paiement .content .modes-card .mode-img img {
+  width: 124px;
+  height: auto;
+}
+.Mode-Paiement .content .modes-card .horizontal-line {
+  width: 100px;
+  height: 2.5px;
+  background-color: #171c2c;
+  margin: 20px;
+  border: none;
+}
+.Mode-Paiement .content .modes-card:hover {
+  background-color: #29314d;
+}
+
+@media (max-width: 768px) {
+  .Mode-Paiement {
+    background-color: #171c2c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .Mode-Paiement #logo {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  .Mode-Paiement .content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 4rem;
+  }
+}

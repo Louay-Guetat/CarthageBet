@@ -1,0 +1,900 @@
+.Dashboard-Agent {
+  background-color: #171c2c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 91.35vh;
+  direction: rtl;
+  padding-bottom: 5rem;
+}
+.Dashboard-Agent img {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.Dashboard-Agent .notification-icon {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+.Dashboard-Agent .notification-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(206, 28, 28);
+  color: white;
+  border-radius: 50%;
+  padding: 0.5rem 0.7rem;
+  margin-top: -5px;
+  margin-right: -30px;
+  font-size: 14px;
+}
+.Dashboard-Agent .navbar {
+  width: 40%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.Dashboard-Agent .navbar button {
+  background-color: #fbfdfe;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  margin: 0rem 1rem;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+}
+.Dashboard-Agent .editWallet {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5rem;
+  background-color: #29314d;
+  padding: 1rem;
+}
+.Dashboard-Agent .editWallet #comboBox {
+  background-color: white;
+  border: none;
+  height: 30px;
+  margin-left: 0.5rem;
+  font-size: 16px;
+  border-radius: 5px;
+  width: auto;
+}
+.Dashboard-Agent .editWallet p {
+  color: white;
+  font-size: 20px;
+}
+.Dashboard-Agent .editWallet .edit-icon {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+}
+.Dashboard-Agent .editWallet input {
+  padding: 0.2rem;
+  font-size: 17px;
+  border-radius: 0.5rem;
+  border: none;
+  margin-left: 0.5rem;
+}
+.Dashboard-Agent .method {
+  margin: 0rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Dashboard-Agent .method button {
+  padding: 1rem;
+  background-color: #29314d;
+  font-size: 32px;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+.Dashboard-Agent .method button:hover {
+  background-color: #3a476f;
+}
+.Dashboard-Agent .method-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid #8492be;
+  border-radius: 1rem;
+  color: white;
+  width: 50%;
+  padding: 1rem;
+}
+.Dashboard-Agent .method-action input {
+  border: none;
+  width: 20rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dashboard-Agent .method-action .details-toggle {
+  min-width: 50%;
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #c3c7c0;
+  color: black;
+}
+.Dashboard-Agent .method-action .details-toggle .details-toggle {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-Agent .method-action .details-toggle .toggle-text {
+  margin-left: 10px;
+}
+.Dashboard-Agent .method-action .details-toggle .details-header {
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.Dashboard-Agent .method-action .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.Dashboard-Agent .method-action .details .data-row {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.Dashboard-Agent .method-action .details .data-row .credentials {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem 2rem;
+  width: 100%;
+}
+.Dashboard-Agent .method-action .details .actions .accepter {
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0rem 1rem;
+  cursor: pointer;
+  font-size: 16px;
+}
+.Dashboard-Agent .method-action .details .actions .accepter:hover {
+  background-color: #00e600;
+}
+.Dashboard-Agent .method-action .details .actions .refuser {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0rem 1rem;
+  cursor: pointer;
+  font-size: 16px;
+}
+.Dashboard-Agent .method-action .details .actions .refuser:hover {
+  background-color: #ff6666;
+}
+.Dashboard-Agent .method-action .pagination {
+  margin-top: 1rem;
+}
+.Dashboard-Agent .method-action .pagination span {
+  margin: 0 5rem;
+}
+.Dashboard-Agent .method-action .pagination button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 0.5rem;
+  background-color: #171c2c;
+  border-radius: 5px;
+}
+.Dashboard-Agent .method-action .pagination button:hover {
+  background-color: #29314d;
+}
+.Dashboard-Agent .method-action .pagination button:disabled {
+  border: none;
+}
+.Dashboard-Agent .method-action .pagination button:disabled:hover {
+  background-color: transparent;
+}
+.Dashboard-Agent .history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid #8492be;
+  border-radius: 1rem;
+  color: white;
+  width: 50%;
+  padding: 1rem;
+}
+.Dashboard-Agent .history input {
+  border: none;
+  width: 20rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dashboard-Agent .history .details-toggle {
+  min-width: 50%;
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  border: none;
+  background-color: #c3c7c0;
+  color: black;
+  border-radius: 5px;
+}
+.Dashboard-Agent .history .details-toggle .details-toggle {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-Agent .history .details-toggle .toggle-text {
+  margin-left: 10px;
+}
+.Dashboard-Agent .history .details-toggle .details-header {
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.Dashboard-Agent .history .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Dashboard-Agent .history .details .data-row {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.Dashboard-Agent .history .details .data-row .credentials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem 2rem;
+  width: 100%;
+}
+.Dashboard-Agent .history .pagination {
+  margin-top: 1rem;
+}
+.Dashboard-Agent .history .pagination span {
+  margin: 0 5rem;
+}
+.Dashboard-Agent .history .pagination button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 0.5rem;
+  background-color: #171c2c;
+  border-radius: 5px;
+}
+.Dashboard-Agent .history .pagination button:hover {
+  background-color: #29314d;
+}
+.Dashboard-Agent .history .pagination button:disabled {
+  border: none;
+}
+.Dashboard-Agent .history .pagination button:disabled:hover {
+  background-color: transparent;
+}
+.Dashboard-Agent .notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.Dashboard-Agent .notifications input {
+  border: none;
+  width: 20rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dashboard-Agent .notifications .logout-button button {
+  background-color: #fbfdfe;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+}
+.Dashboard-Agent .notifications .logout-button button:hover {
+  background-color: #cccccc;
+}
+.Dashboard-Agent .notifications .history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  width: 50%;
+  padding: 1rem;
+}
+.Dashboard-Agent .notifications .history .details-toggle {
+  min-width: 50%;
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  border: 3px 0px solid black;
+  border-radius: 5px;
+}
+.Dashboard-Agent .notifications .history .details-toggle .details-toggle {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-Agent .notifications .history .details-toggle .toggle-text {
+  margin-left: 10px;
+}
+.Dashboard-Agent .notifications .history .details-toggle .details-header {
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.Dashboard-Agent .notifications .history .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Dashboard-Agent .notifications .history .details .data-row {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.Dashboard-Agent .notifications .history .details .data-row .credentials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem 2rem;
+  width: 100%;
+}
+.Dashboard-Agent .notifications .history .details button {
+  background-color: rgb(38, 105, 38);
+  border: none;
+  border-radius: 5px;
+  width: 25%;
+  padding: 0.5rem;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.Dashboard-Agent .notifications .history .details button:hover {
+  background-color: #41b441;
+}
+.Dashboard-Agent .notifications .history .pagination {
+  margin-top: 1rem;
+}
+.Dashboard-Agent .notifications .history .pagination span {
+  margin: 0 5rem;
+}
+.Dashboard-Agent .notifications .history .pagination button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 0.5rem;
+  background-color: #171c2c;
+  border-radius: 5px;
+}
+.Dashboard-Agent .notifications .history .pagination button:hover {
+  background-color: #29314d;
+}
+.Dashboard-Agent .notifications .history .pagination button:disabled {
+  border: none;
+}
+.Dashboard-Agent .notifications .history .pagination button:disabled:hover {
+  background-color: transparent;
+}
+.Dashboard-Agent .notifications .agents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  width: 50%;
+  padding: 1rem;
+}
+.Dashboard-Agent .notifications .agents input {
+  border: none;
+  width: 20rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dashboard-Agent .notifications .agents button {
+  border: none;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Dashboard-Agent .notifications .agents button:hover {
+  background-color: rgb(190, 175, 175);
+  color: black;
+}
+.Dashboard-Agent .notifications .agents .details-toggle {
+  min-width: 50%;
+  padding: 1rem;
+  margin: 0.5rem 0rem;
+  border: 3px 0px solid black;
+  border-radius: 5px;
+  background-color: #c3c7c0;
+  color: black;
+}
+.Dashboard-Agent .notifications .agents .details-toggle .details-toggle {
+  display: flex;
+  align-items: center;
+}
+.Dashboard-Agent .notifications .agents .details-toggle .toggle-text {
+  margin-left: 10px;
+}
+.Dashboard-Agent .notifications .agents .details-toggle .details-header {
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.Dashboard-Agent .notifications .agents .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Dashboard-Agent .notifications .agents .details .data-row {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.Dashboard-Agent .notifications .agents .details .data-row .credentials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem 2rem;
+  width: 100%;
+}
+.Dashboard-Agent .notifications .agents .details .data-row .credentials .wallets-container {
+  display: flex;
+  text-align: center;
+}
+.Dashboard-Agent .notifications .agents .details .data-row .credentials .wallets-container .wallets-column-right {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
+}
+.Dashboard-Agent .notifications .agents .details .data-row .credentials .wallets-container .wallets-column-left {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
+}
+.Dashboard-Agent .notifications .agents .details button {
+  background-color: rgb(38, 105, 38);
+  border: none;
+  border-radius: 5px;
+  width: 25%;
+  padding: 0.5rem;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.Dashboard-Agent .notifications .agents .details button:hover {
+  background-color: #41b441;
+}
+.Dashboard-Agent .notifications .agents .pagination {
+  margin-top: 1rem;
+}
+.Dashboard-Agent .notifications .agents .pagination span {
+  margin: 0 5rem;
+}
+.Dashboard-Agent .notifications .agents .pagination button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 0.5rem;
+  background-color: #171c2c;
+  border-radius: 5px;
+}
+.Dashboard-Agent .notifications .agents .pagination button:hover {
+  background-color: #29314d;
+}
+.Dashboard-Agent .notifications .agents .pagination button:disabled {
+  border: none;
+}
+.Dashboard-Agent .notifications .agents .pagination button:disabled:hover {
+  background-color: transparent;
+}
+.Dashboard-Agent .notifications .add-agent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.Dashboard-Agent .notifications .add-agent label {
+  padding: 1rem;
+  color: white;
+  font-size: 20px;
+}
+.Dashboard-Agent .notifications .add-agent input {
+  padding: 0.3rem;
+  font-size: 16px;
+}
+.Dashboard-Agent .notifications .add-agent button {
+  margin-top: 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  padding: 0.7rem;
+  color: white;
+  font-size: 16px;
+  width: 40%;
+  cursor: pointer;
+}
+.Dashboard-Agent .notifications .add-agent button:hover {
+  background-color: white;
+  color: green;
+}
+.Dashboard-Agent .notifications .add-agent .walletInputs {
+  display: flex;
+}
+.Dashboard-Agent .notifications .add-agent .walletInputs .right-wallets {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
+}
+.Dashboard-Agent .notifications .add-agent .walletInputs .left-wallets {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .Dashboard-Agent {
+    background-color: #171c2c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    direction: rtl;
+  }
+  .Dashboard-Agent .notification-icon {
+    position: relative;
+    display: inline-block;
+    color: white;
+    margin-top: 5rem;
+  }
+  .Dashboard-Agent .notification-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(206, 28, 28);
+    color: white;
+    border-radius: 50%;
+    padding: 0.5rem 0.7rem;
+    margin-top: -5px;
+    margin-right: -30px;
+    font-size: 14px;
+  }
+  .Dashboard-Agent .navbar {
+    width: 50%;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .Dashboard-Agent .navbar button {
+    margin: 1rem 0rem;
+  }
+  .Dashboard-Agent .method-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8492be;
+    border-radius: 1rem;
+    color: white;
+    width: 90%;
+    padding: 1rem;
+  }
+  .Dashboard-Agent .method-action .details-toggle {
+    min-width: 50%;
+    padding: 1rem;
+    margin: 0.5rem 0rem;
+    border: 3px solid black;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .method-action .details-toggle .details-toggle {
+    display: flex;
+    align-items: center;
+  }
+  .Dashboard-Agent .method-action .details-toggle .toggle-text {
+    margin-left: 10px;
+  }
+  .Dashboard-Agent .method-action .details-toggle .details-header {
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+  }
+  .Dashboard-Agent .method-action .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .Dashboard-Agent .method-action .details .data-row {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .method-action .details .data-row .credentials {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 2rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .method-action .details .actions .accepter {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0rem 1rem;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .Dashboard-Agent .method-action .details .actions .accepter:hover {
+    background-color: #00e600;
+  }
+  .Dashboard-Agent .method-action .details .actions .refuser {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0rem 1rem;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .Dashboard-Agent .method-action .details .actions .refuser:hover {
+    background-color: #ff6666;
+  }
+  .Dashboard-Agent .method-action .pagination {
+    margin-top: 1rem;
+  }
+  .Dashboard-Agent .method-action .pagination span {
+    margin: 0 5rem;
+  }
+  .Dashboard-Agent .method-action .pagination button {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 0.5rem;
+    background-color: #171c2c;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .method-action .pagination button:hover {
+    background-color: #29314d;
+  }
+  .Dashboard-Agent .method-action .pagination button:disabled {
+    border: none;
+  }
+  .Dashboard-Agent .method-action .pagination button:disabled:hover {
+    background-color: transparent;
+  }
+  .Dashboard-Agent .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8492be;
+    border-radius: 1rem;
+    color: white;
+    width: 80%;
+    padding: 1rem;
+  }
+  .Dashboard-Agent .history .details-toggle {
+    width: 90%;
+    padding: 1rem;
+    margin: 0.5rem 0rem;
+    border: 3px solid black;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .history .details-toggle .details-toggle {
+    display: flex;
+    align-items: center;
+  }
+  .Dashboard-Agent .history .details-toggle .toggle-text {
+    margin-left: 10px;
+  }
+  .Dashboard-Agent .history .details-toggle .details-header {
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+  }
+  .Dashboard-Agent .history .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Dashboard-Agent .history .details .data-row {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .history .details .data-row .credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 1rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .history .pagination {
+    margin-top: 1rem;
+  }
+  .Dashboard-Agent .history .pagination span {
+    margin: 0 2rem;
+  }
+  .Dashboard-Agent .history .pagination button {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 0.5rem;
+    background-color: #171c2c;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .history .pagination button:hover {
+    background-color: #29314d;
+  }
+  .Dashboard-Agent .history .pagination button:disabled {
+    border: none;
+  }
+  .Dashboard-Agent .history .pagination button:disabled:hover {
+    background-color: transparent;
+  }
+  .Dashboard-Agent .notifications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .Dashboard-Agent .notifications .logout-button button {
+    background-color: #fbfdfe;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .Dashboard-Agent .notifications .logout-button button:hover {
+    background-color: #cccccc;
+  }
+  .Dashboard-Agent .notifications .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    width: 90%;
+    padding: 1rem;
+  }
+  .Dashboard-Agent .notifications .history .details-toggle {
+    min-width: 90%;
+    padding: 1rem;
+    margin: 0.5rem 0rem;
+    border: 3px 0px solid black;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .notifications .history .details-toggle .details-toggle {
+    display: flex;
+    align-items: center;
+  }
+  .Dashboard-Agent .notifications .history .details-toggle .toggle-text {
+    margin-left: 10px;
+  }
+  .Dashboard-Agent .notifications .history .details-toggle .details-header {
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+  }
+  .Dashboard-Agent .notifications .history .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Dashboard-Agent .notifications .history .details .data-row {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .notifications .history .details .data-row .credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 2rem;
+    width: 100%;
+  }
+  .Dashboard-Agent .notifications .history .details button {
+    background-color: rgb(38, 105, 38);
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    padding: 0.5rem;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .Dashboard-Agent .notifications .history .details button:hover {
+    background-color: #41b441;
+  }
+  .Dashboard-Agent .notifications .history .pagination {
+    margin-top: 1rem;
+  }
+  .Dashboard-Agent .notifications .history .pagination span {
+    margin: 0 2rem;
+  }
+  .Dashboard-Agent .notifications .history .pagination button {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 0.5rem;
+    background-color: #171c2c;
+    border-radius: 5px;
+  }
+  .Dashboard-Agent .notifications .history .pagination button:hover {
+    background-color: #29314d;
+  }
+  .Dashboard-Agent .notifications .history .pagination button:disabled {
+    border: none;
+  }
+  .Dashboard-Agent .notifications .history .pagination button:disabled:hover {
+    background-color: transparent;
+  }
+}

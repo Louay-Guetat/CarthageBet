@@ -1,0 +1,100 @@
+@import 'utils/variables';
+
+.Login{
+    background-color: $background-color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    img{
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+
+    h1{
+        color: white;
+        font-size: 32px;
+    }
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        div{
+            display: flex;
+            flex-direction: column;
+            margin: 1rem 0rem;
+            width: 15vw;
+            input{
+                padding: 0.25rem;
+                margin-top: 0.5rem;
+                border: none;
+                border-radius: 0.25rem;
+                font-size: 20px;
+            }
+
+            label{
+                color: white;
+                font-size: 24px;
+            }
+        }
+
+        button{
+            width: 50%;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 0.5rem;
+            cursor: pointer;
+            &:hover{
+                background-color: lighten($background-color, 75%);
+            }
+        }
+    }
+}
+
+@media (max-width: 1380px) {
+    .Login{
+        .login-form{
+            
+            div{
+                display: flex;
+                flex-direction: column;
+                margin: 1rem 0rem;
+                width: 100%;
+                input{
+                    padding: 0.25rem;
+                    margin-top: 0.5rem;
+                    border: none;
+                    border-radius: 0.25rem;
+                    font-size: 18px;
+                }
+    
+                label{
+                    color: white;
+                    font-size: 16px;
+                }
+            }
+    
+            button{
+                width: 60%;
+                background-color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                padding: 0.5rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: lighten($background-color, 75%);
+                }
+            }
+        }
+    }
+}
