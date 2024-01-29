@@ -4,5 +4,45 @@
     "password": "123",
     "role": "manager",
     "solde": 50000
+  },
+  {
+    "username": "Louay",
+    "password": "123",
+    "solde": "5000",
+    "wallets": [
+      {
+        "name": "SmartWalletEGP",
+        "number": "1111"
+      },
+      {
+        "name": "We Pay",
+        "number": "2222"
+      },
+      {
+        "name": "Fawry",
+        "number": "3333"
+      },
+      {
+        "name": "Orange Payment",
+        "number": "4444"
+      },
+      {
+        "name": "InstaPay EGP",
+        "number": "5555"
+      },
+      {
+        "name": "BM Wallet EGP",
+        "number": "6666"
+      },
+      {
+        "name": "Vodafone",
+        "number": "7777"
+      },
+      {
+        "name": "Etisalat",
+        "number": "8888"
+      }
+    ],
+    "role": "agent"
   }
 ]

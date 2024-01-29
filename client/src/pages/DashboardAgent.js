@@ -408,7 +408,16 @@ const DashboardAgent = () =>{
     const [agentUsername, setAgentUsername] = useState()
     const [agentPassword, setAgentPassword] = useState()
     const [agentSolde, setAgentSolde] = useState()
-    const [agentWallets,setAgentWallets] = useState()
+    const [agentWallets,setAgentWallets] = useState([
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                        {"name":'',"number":undefined},
+                                                    ])
     
     const [buttonName, setButtonName] = useState("إضافة وكيل")
 
@@ -425,7 +434,16 @@ const DashboardAgent = () =>{
             setAgentUsername(undefined)
             setAgentPassword(undefined)
             setAgentSolde(undefined)
-            setAgentWallets(undefined) 
+            setAgentWallets([
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+                {"name":undefined,"number":undefined},
+            ]) 
         }
         setAddAgentStyle('flex')
         setAgentsStyle('none')
@@ -439,8 +457,18 @@ const DashboardAgent = () =>{
             'wallets': agentWallets,
             'role': 'agent'
         };
+        let agentsBool = true
+        let i = 0
 
-        if(agentUsername !== undefined && agentPassword !== undefined && agentSolde !== undefined && agentWallets !== undefined){
+        while (i < agentWallets.length && agentsBool === true){
+            if (agentWallets[i].name === undefined){
+                agentsBool = false
+            }else{
+                i++;
+            }
+        }
+
+        if(agentUsername !== undefined && agentPassword !== undefined && agentSolde !== undefined && agentWallets.name !== false){
             try {
                 if(status === 'add'){
                     const response = await fetch(process.env.REACT_APP_API_URL+'/addAgent', {
@@ -886,24 +914,24 @@ const DashboardAgent = () =>{
                                 <input defaultValue={agentSolde} type='text' onChange={(e) => setAgentSolde(e.target.value)} />
                                 <div className='walletInputs'>
                                     <div className='right-wallets'>
-                                        <label>المحفظة {agentWallets && agentWallets[0].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[0].number} type='text' onChange={(e) => agentWallets[0].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[1].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[1].number} type='text' onChange={(e) => agentWallets[1].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[2].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[2].number} type='text' onChange={(e) => agentWallets[2].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[3].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[3].number} type='text' onChange={(e) => agentWallets[3].number = (e.target.value)} />
+                                        <label> SmartWalletEGP المحفظة {agentWallets && agentWallets[0].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[0].number} type='text' onChange={(e) => agentWallets[0] = {"name":'SmartWalletEGP', "number":e.target.value}} />
+                                        <label> We Pay المحفظة {agentWallets && agentWallets[1].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[1].number} type='text' onChange={(e) => agentWallets[1] = {"name":'We Pay', "number":e.target.value}} />
+                                        <label> Fawry المحفظة {agentWallets && agentWallets[2].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[2].number} type='text' onChange={(e) => agentWallets[2] = {"name":'Fawry', "number":e.target.value}} />
+                                        <label> Orange Payment المحفظة {agentWallets && agentWallets[3].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[3].number} type='text' onChange={(e) => agentWallets[3] = {"name":'Orange Payment', "number":e.target.value}} />
                                     </div>
                                     <div className='left-wallets'>
-                                        <label>المحفظة {agentWallets && agentWallets[4].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[4].number} type='text' onChange={(e) => agentWallets[4].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[5].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[5].number} type='text' onChange={(e) => agentWallets[5].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[6].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[6].number} type='text' onChange={(e) => agentWallets[6].number = (e.target.value)} />
-                                        <label>المحفظة {agentWallets && agentWallets[7].name} </label>
-                                        <input defaultValue={agentWallets && agentWallets[7].number} type='text' onChange={(e) => agentWallets[7].number = (e.target.value)} />
+                                        <label> InstaPay EGP المحفظة {agentWallets && agentWallets[4].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[4].number} type='text' onChange={(e) => agentWallets[4] = {"name":'InstaPay EGP', "number":e.target.value}} />
+                                        <label> BM Wallet EGP المحفظة {agentWallets && agentWallets[5].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[5].number} type='text' onChange={(e) => agentWallets[5] = {"name":'BM Wallet EGP', "number":e.target.value}} />
+                                        <label> Vodafone المحفظة {agentWallets && agentWallets[6].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[6].number} type='text' onChange={(e) => agentWallets[6] = {"name":'Vodafone', "number":e.target.value}} />
+                                        <label> Etisalat المحفظة {agentWallets && agentWallets[7].name} </label>
+                                        <input defaultValue={agentWallets && agentWallets[7].number} type='text' onChange={(e) => agentWallets[7] = {"name":'Etisalat', "number":e.target.value}} />
                                     </div>
                                 </div>
                                 <button onClick={buttonName === 'إضافة وكيل' ? () => addAgentSubmit('add') : () => addAgentSubmit('edit')}> {buttonName}</button>

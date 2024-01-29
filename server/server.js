@@ -188,6 +188,7 @@ async function getWallet(init) {
 
     const walletsArray = dataArray.filter(user => user.role === 'agent').map(agent => agent.wallets);
     wallets = walletsArray
+    console.log(wallets)
     if(wallets.length !== 0 ){
       if(init === 'init'){
         return walletsArray[0][0].number
@@ -408,6 +409,19 @@ app.post('/declineOrder', async (req, res) => {
 app.get('/loginDashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.get('/Dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.get('/modePaiement', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.get('/Paiement', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
