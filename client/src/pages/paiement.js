@@ -179,7 +179,7 @@ const Paiement = () => {
                     رقم المحفظة: <span style={{color:'green'}}>{wallet}</span>
                 </p>
                 <div className='formulaire'>
-                    <input type='text' placeholder='معرف المستخدم' onChange={(e) => verifyID(e.target.value)} />
+                    <input type='text' placeholder='ID' onChange={(e) => verifyID(e.target.value)} />
                     <span className='error' style={ idError !== undefined ? {display : 'flex', color:'red', fontSize:'14px'} : {display: 'none'}} > {idError} </span>
 
                     <input type='text' placeholder='إسم المستخدم' onChange={(e) => verifyNom(e.target.value)} />

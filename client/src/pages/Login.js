@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 const Login = () =>{
     const [username, setUsername] = useState()
     const [password, setPassword] = useState();
-    
+    const [showPassword, setShowPassword] = useState(false);
+
     const navigate = useNavigate();
 
     const handleLogin = async() =>{
@@ -48,6 +49,10 @@ const Login = () =>{
             console.error('Error fetching data:', error);
           }
     }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     
     return (
         <div className="Login">
@@ -57,11 +62,19 @@ const Login = () =>{
             <div className='login-form'>
                 <div>
                     <label>اسم المستخدم</label>
-                    <input type="text" onChange={(e) => setUsername(e.target.value)} />
+                    <input id='userID' type="text" onChange={(e) => setUsername(e.target.value)} />
                 </div>
-                <div>
+                <div className="password-container">
                     <label> كلمة المرور </label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} />
+                    <div className="password-input-container">
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <span className="eye-icon" onClick={togglePasswordVisibility}>
+                            {showPassword ? '👀' : '👁️'}
+                        </span>
+                    </div>
                 </div>
 
                 <button onClick={handleLogin}> تسجيل الدخول </button>

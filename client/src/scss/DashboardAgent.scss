@@ -629,6 +629,33 @@
                     font-size: 16px;
                 }
 
+                .password-container {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;    
+                    padding: 1rem;
+
+                    .password-input-container {
+                        display: flex;
+                        
+                        input{
+                            padding: 0.3rem;
+                            font-size: 16px;
+                            padding-left: 30px;
+                        }
+        
+                        .eye-icon {
+                            position: absolute;
+                            top: 73%;
+                            left: 5%;
+                            transform: translateY(-50%);
+                            cursor: pointer;
+                        }
+                    }            
+                }
+
                 button{
                     margin-top: 2rem;
                     border-radius: 5px;

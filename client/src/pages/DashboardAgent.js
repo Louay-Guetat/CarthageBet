@@ -51,7 +51,6 @@ const DashboardAgent = () =>{
               setAllWallets(data.wallets);
 
               const selectedWallet = data.wallets.find(wallet => wallet.name === selectedOption);
-              console.log(selectedWallet)
               setWallet(selectedWallet.number);
             } else {
               console.log('User not found or other error:', response.status);
@@ -172,7 +171,13 @@ const DashboardAgent = () =>{
             const jsonManagerData = await managerData.json();
             const jsonAgentsData = await agentsReponse.json();
             
-            const filteredData = jsonData;
+            const filteredData = jsonData.filter((item) => {
+                if (allWallets){
+                    const walletExists = allWallets.some(walletObj => walletObj.number === item.wallet);
+                    return item.status === false && walletExists;
+                }
+            });
+
             let filteredDataHistory = undefined
             if(role === 'agent'){
                 filteredDataHistory = jsonHistoryData.filter((item) => item.wallet === wallet);
@@ -183,7 +188,7 @@ const DashboardAgent = () =>{
             filteredDataHistory.map((item) => amounts = amounts + parseInt(item.montant))
 
             setTotal(amounts)
-            setData(jsonData);
+            setData(filteredData);
             setDataHistory(filteredDataHistory);
             setManagerData(jsonManagerData);
             setAgents(jsonAgentsData);
@@ -492,7 +497,6 @@ const DashboardAgent = () =>{
                     setAddAgentStyle('none')
                     setAgentsStyle('flex')
                 }else{
-                    console.log(data)
                     const response = await fetch(process.env.REACT_APP_API_URL+'/editAgent', {
                         method: 'POST',
                         headers: {
@@ -602,6 +606,13 @@ const DashboardAgent = () =>{
         setAgentsDetailsVisibility(new Array(filteredAgentsData.length).fill(false));
     };
     
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+    
+    
     return (
         <div className="Dashboard-Agent">
             <ToastContainer />
@@ -648,7 +659,7 @@ const DashboardAgent = () =>{
                                     <div className="details">
                                         <div className='data-row' key={'detail' + index}>
                                         <div className='credentials'>
-                                            <p> معرف المستخدم: {detail.id} </p>
+                                            <p> ID: {detail.id} </p>
                                             <p> إسم المستخدم: {detail.nom} </p>
                                             <p> رقم الهاتف: {detail.num} </p>
                                         </div>
@@ -698,7 +709,7 @@ const DashboardAgent = () =>{
                                     <div className="details">
                                         <div className='data-row' key={'detail' + index}>
                                             <div className='credentials'>
-                                                <p> معرف المستخدم: {detail.id} </p>
+                                                <p> ID: {detail.id} </p>
                                                 <p> رقم الهاتف: {detail.num} </p>
                                                 <p> الجواب: {detail.status} </p>
                                                 <p> سحب / إيداع: {detail.method} </p>
@@ -763,7 +774,7 @@ const DashboardAgent = () =>{
                                             <div className="details">
                                                 <div className='data-row' key={'detail' + index}>
                                                     <div className='credentials'>
-                                                        <p> معرف المستخدم: {detail.id} </p>
+                                                        <p> ID: {detail.id} </p>
                                                         <p> رقم الهاتف: {detail.num} </p>
                                                         <p> الجواب: {detail.status} </p>
                                                         <p> سحب / إيداع: {detail.method} </p>
@@ -815,7 +826,7 @@ const DashboardAgent = () =>{
                                             <div className="details">
                                                 <div className='data-row' key={'detail' + index}>
                                                     <div className='credentials'>
-                                                        <p> معرف المستخدم: {detail.id} </p>
+                                                        <p> ID: {detail.id} </p>
                                                         <p> رقم الهاتف: {detail.num} </p>
                                                         <p> الجواب: {detail.status} </p>
                                                         <p> سحب / إيداع: {detail.method} </p>
@@ -908,8 +919,19 @@ const DashboardAgent = () =>{
                         <div style={{display: addAgentStyle}} className='add-agent'>
                                 <label>اسم المستخدم</label>
                                 <input defaultValue={agentUsername} type='text' onChange={(e) => setAgentUsername(e.target.value)} />
-                                <label>كلمة المرور</label>
-                                <input defaultValue={agentPassword} type='password' onChange={(e) => setAgentPassword(e.target.value)} />
+                                <div className="password-container">
+                                    <label> كلمة المرور </label>
+                                    <div className="password-input-container">
+                                        <input
+                                            defaultValue={agentPassword}
+                                            type={showPassword ? 'text' : 'password'}
+                                            onChange={(e) => setAgentPassword(e.target.value)}
+                                        />
+                                        <span className="eye-icon" onClick={togglePasswordVisibility}>
+                                            {showPassword ? '👀' : '👁️'}
+                                        </span>
+                                    </div>
+                                </div>
                                 <label>الرصيد</label>
                                 <input defaultValue={agentSolde} type='text' onChange={(e) => setAgentSolde(e.target.value)} />
                                 <div className='walletInputs'>

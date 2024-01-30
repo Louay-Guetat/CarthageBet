@@ -31,6 +31,7 @@
             flex-direction: column;
             margin: 1rem 0rem;
             width: 15vw;
+
             input{
                 padding: 0.25rem;
                 margin-top: 0.5rem;
@@ -43,6 +44,34 @@
                 color: white;
                 font-size: 24px;
             }
+        }
+
+        .password-container {
+            position: relative;
+
+            .password-input-container {
+                display: flex;
+            flex-direction: column;
+            margin: 1rem 0rem;
+            width: 15vw;
+
+                input{
+                    padding: 0.25rem;
+                    margin-top: 0.5rem;
+                    border: none;
+                    border-radius: 0.25rem;
+                    font-size: 20px;
+                    padding-left: 30px;
+                }
+
+                .eye-icon {
+                    position: absolute;
+                    top: 67.5%;
+                    left: 1.5%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }            
         }
 
         button{

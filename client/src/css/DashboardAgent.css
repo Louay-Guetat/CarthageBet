@@ -552,6 +552,29 @@
   padding: 0.3rem;
   font-size: 16px;
 }
+.Dashboard-Agent .notifications .add-agent .password-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.Dashboard-Agent .notifications .add-agent .password-container .password-input-container {
+  display: flex;
+}
+.Dashboard-Agent .notifications .add-agent .password-container .password-input-container input {
+  padding: 0.3rem;
+  font-size: 16px;
+  padding-left: 30px;
+}
+.Dashboard-Agent .notifications .add-agent .password-container .password-input-container .eye-icon {
+  position: absolute;
+  top: 73%;
+  left: 5%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .Dashboard-Agent .notifications .add-agent button {
   margin-top: 2rem;
   border-radius: 5px;
