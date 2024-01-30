@@ -44,5 +44,45 @@
       }
     ],
     "role": "agent"
+  },
+  {
+    "username": "Amine",
+    "password": "123",
+    "solde": "500",
+    "wallets": [
+      {
+        "name": "SmartWalletEGP",
+        "number": "11112222"
+      },
+      {
+        "name": "We Pay",
+        "number": "22221111"
+      },
+      {
+        "name": "Fawry",
+        "number": "22223333"
+      },
+      {
+        "name": "Orange Payment",
+        "number": "33331222"
+      },
+      {
+        "name": "InstaPay EGP",
+        "number": "555566963"
+      },
+      {
+        "name": "BM Wallet EGP",
+        "number": "251263245"
+      },
+      {
+        "name": "Vodafone",
+        "number": "25236548"
+      },
+      {
+        "name": "Etisalat",
+        "number": "2532520336"
+      }
+    ],
+    "role": "agent"
   }
 ]

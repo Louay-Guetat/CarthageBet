@@ -375,7 +375,6 @@ app.post('/declineOrder', async (req, res) => {
       for (w in wallets){
         for(i in wallets[w]){
           if(wallets[w][i].number === item[0].wallet){
-            console.log()
             walletIndex = parseInt(w)
             walletInnerIndex = i
           }
@@ -389,7 +388,6 @@ app.post('/declineOrder', async (req, res) => {
         item[0].wallet = wallets[walletIndex+1][walletInnerIndex].number
         item[0].mode_paiement = wallets[walletIndex+1][walletInnerIndex].name
       }
-      console.log(item[0].wallet)
       const updatedIndices = item.map((updatedItem) =>
         originalData.findIndex((originalItem) => originalItem.id === updatedItem.id)
       );     
