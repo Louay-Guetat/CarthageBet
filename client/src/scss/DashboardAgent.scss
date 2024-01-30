@@ -526,6 +526,12 @@
                     cursor: pointer;
                     padding-bottom: 0.5rem;
                     border-bottom: 1px solid black;
+                    display: flex;
+
+                    .remove-agent{
+                        display: flex;
+                        margin-right: auto;
+                    }
                 }
             }
     

@@ -4,6 +4,10 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserMinus } from '@fortawesome/free-solid-svg-icons';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import '../css/DashboardAgent.css'
 
@@ -48,10 +52,12 @@ const DashboardAgent = () =>{
             if (response.ok) {
               const data = await response.json();
               setSolde(parseInt(data.solde));
-              setAllWallets(data.wallets);
+              if (data.wallets){
+                setAllWallets(data.wallets);
+                const selectedWallet = data.wallets.find(wallet => wallet.name === selectedOption);
+                setWallet(selectedWallet.number);  
+              }
 
-              const selectedWallet = data.wallets.find(wallet => wallet.name === selectedOption);
-              setWallet(selectedWallet.number);
             } else {
               console.log('User not found or other error:', response.status);
             }
@@ -485,7 +491,7 @@ const DashboardAgent = () =>{
                     });
             
                     await response.text();
-                    toast.success('Agent ajouté!', {
+                    toast.success('! الوكيل تمت إضافته', {
                         position: 'top-center',
                         autoClose: 3000,
                         hideProgressBar: false,
@@ -506,7 +512,7 @@ const DashboardAgent = () =>{
                     });
             
                     await response.text();
-                    toast.success('Agent Modifié!', {
+                    toast.success('! الوكيل تم تعديله', {
                         position: 'top-center',
                         autoClose: 3000,
                         hideProgressBar: false,
@@ -612,6 +618,45 @@ const DashboardAgent = () =>{
         setShowPassword(!showPassword);
     };
     
+    const removeAgent = (agent) => {
+        confirmAlert({
+          title: 'تأكيد',
+          message: `؟ ${agent.username} هل أنت متأكد أنك تريد إزالة الوكيل`,
+          buttons: [
+            {
+              label: 'نعم',
+              onClick: async () => {
+                console.log('Removing agent:', agent.username);
+                try{
+                    const response = await fetch(process.env.REACT_APP_API_URL+'/removeAgent', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(agent),
+                    });    
+                    console.log(response.data)
+                    setAgents(response.data)
+                }catch(error){
+                    console.log(error)
+                }
+                toast.success('تمت إزالة الوكيل بنجاح', {
+                    position: 'top-center',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                });
+              },
+            },
+            {
+              label: 'لا',
+            },
+          ],
+        });
+      };
     
     return (
         <div className="Dashboard-Agent">
@@ -869,11 +914,11 @@ const DashboardAgent = () =>{
                                         <input type='text' onChange={(e) => searchAgents(e.target.value)} />
                                         {agentsItemsToShow && agentsItemsToShow.map((detail, index) => (
                                         <div className="details-toggle" key={'history' + index}>
-                                            <div className='details-header' onClick={() => toggleAgentsDetails(startIndex + index)}>
-                                            <span className="toggle-text">
-                                                {agentsDetailsVisibility[startIndex + index] ? '▲' : '▼'} تفاصيل {detail.username}
-                                            </span>
-                                            <span className="id-value">{detail.id}</span>
+                                            <div className='details-header'>
+                                                <span className="toggle-text" onClick={() => toggleAgentsDetails(startIndex + index)}>
+                                                    {agentsDetailsVisibility[startIndex + index] ? '▲' : '▼'} تفاصيل {detail.username}
+                                                </span>
+                                                <div className='remove-agent' onClick={() => removeAgent(detail)}><FontAwesomeIcon icon={faUserMinus} /></div>
                                             </div>
                                             {agentsDetailsVisibility[startIndex + index] && (
                                             <div className="details">

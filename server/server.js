@@ -405,6 +405,30 @@ app.post('/declineOrder', async (req, res) => {
   }
 });
 
+app.post('/removeAgent', async (req, res) => {
+  const agent = req.body
+  const filePath = path.join(__dirname, 'users.json');
+
+  try {
+    const fileData = await fs.readFile(filePath, 'utf8');
+    const dataArray = JSON.parse(fileData);
+    const userIndex = dataArray.findIndex(user => user.username === agent.username);
+
+    if (userIndex !== -1) {
+      dataArray.splice(userIndex, 1);
+      await fs.writeFile(filePath, JSON.stringify(dataArray, null, 2), 'utf8');
+
+      res.send(dataArray);
+    } else {
+      res.status(404).send('User not found');
+    }
+
+  } catch (error) {
+    console.error('Error updating solde:', error);
+    res.status(500).send('Internal Server Error');
+  }
+})
+
 app.get('/loginDashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
