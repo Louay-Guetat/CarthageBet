@@ -48,7 +48,6 @@
   display: flex;
   flex-direction: column;
   margin: 1rem 0rem;
-  width: 15vw;
 }
 .Login .login-form .password-container .password-input-container input {
   padding: 0.25rem;
@@ -95,6 +94,30 @@
   .Login .login-form div label {
     color: white;
     font-size: 16px;
+  }
+  .Login .login-form .password-container {
+    position: relative;
+  }
+  .Login .login-form .password-container .password-input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+    width: 100%;
+  }
+  .Login .login-form .password-container .password-input-container input {
+    padding: 0.25rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 20px;
+    padding-left: 30px;
+  }
+  .Login .login-form .password-container .password-input-container .eye-icon {
+    position: absolute;
+    top: 67.5%;
+    left: 1.5%;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
   .Login .login-form button {
     width: 60%;
