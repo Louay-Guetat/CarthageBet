@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.post('/saveData', async (req, res) => {
+app.post('/api/saveData', async (req, res) => {
     const data = req.body;
 
     try {
@@ -37,7 +37,7 @@ app.post('/saveData', async (req, res) => {
     }
 });
 
-app.get('/getdata', async (req, res) => {
+app.get('/api/getdata', async (req, res) => {
     const filePath = path.join(__dirname, 'data.json');
     try {
       const fileData = await fs.readFile(filePath, 'utf8');
@@ -49,7 +49,7 @@ app.get('/getdata', async (req, res) => {
     }
   });
 
-  app.get('/getHistory', async (req, res) => {
+  app.get('/api/getHistory', async (req, res) => {
     const filePath = path.join(__dirname, 'done.json');
     try {
       const fileData = await fs.readFile(filePath, 'utf8');
@@ -61,7 +61,7 @@ app.get('/getdata', async (req, res) => {
     }
   });
 
-  app.post('/updateData', async (req, res) => {
+  app.post('/api/updateData', async (req, res) => {
     try {
       const updatedData = req.body;
 
@@ -94,7 +94,7 @@ app.get('/getdata', async (req, res) => {
     }
   });
 
-  app.get('/getUsers', async (req, res) => {
+  app.get('/api/getUsers', async (req, res) => {
     const filePath = path.join(__dirname, 'users.json');
     try {
       const fileData = await fs.readFile(filePath, 'utf8');
@@ -106,7 +106,7 @@ app.get('/getdata', async (req, res) => {
     }
   });
 
-  app.post('/editWallet', async (req, res) => {
+  app.post('/api/editWallet', async (req, res) => {
     try {
       const {username, wallet, name} = req.body;
       const filePath = path.join(__dirname, 'users.json');
@@ -131,7 +131,7 @@ app.get('/getdata', async (req, res) => {
     }
   });
 
-  app.post('/handleData', async (req, res) => {
+  app.post('/api/handleData', async (req, res) => {
     try {
       const updatedData = req.body;
 
@@ -164,7 +164,7 @@ app.get('/getdata', async (req, res) => {
     }
 });
 
-app.get('/getManagerData', async (req, res) => {
+app.get('/api/getManagerData', async (req, res) => {
   const filePath = path.join(__dirname, 'doneHistory.json');
   try {
     const fileData = await fs.readFile(filePath, 'utf8');
@@ -237,11 +237,11 @@ setInterval(async () => {
   }
 }, 5 * 60 * 1000);
 
-app.get('/getCurrentWallet', (req, res) => {
+app.get('/api/getCurrentWallet', (req, res) => {
   res.send({currentWallet})
 });
 
-app.post('/updateSolde', async (req, res) => {
+app.post('/api/updateSolde', async (req, res) => {
   const { username, solde } = req.body;
   const filePath = path.join(__dirname, 'users.json');
 
@@ -264,7 +264,7 @@ app.post('/updateSolde', async (req, res) => {
   }
 });
 
-app.post('/getUser', async (req, res) => {
+app.post('/api/getUser', async (req, res) => {
   const { username } = req.body;
   const filePath = path.join(__dirname, 'users.json');
 
@@ -284,7 +284,7 @@ app.post('/getUser', async (req, res) => {
   }
 });
 
-app.get('/getAgents', async (req, res) => {
+app.get('/api/getAgents', async (req, res) => {
   const filePath = path.join(__dirname, 'users.json');
   try {
     const fileData = await fs.readFile(filePath, 'utf8');
@@ -299,7 +299,7 @@ app.get('/getAgents', async (req, res) => {
   }
 });
 
-app.post('/addAgent', async (req, res) => {
+app.post('/api/addAgent', async (req, res) => {
   const data = req.body;
 
   try {
@@ -325,7 +325,7 @@ app.post('/addAgent', async (req, res) => {
   }
 });
 
-app.post('/editAgent', async (req, res) => {
+app.post('/api/editAgent', async (req, res) => {
   const { agent } = req.body;
   const filePath = path.join(__dirname, 'users.json');
 
@@ -348,7 +348,7 @@ app.post('/editAgent', async (req, res) => {
   }
 });
 
-app.post('/declineOrder', async (req, res) => {
+app.post('/api/declineOrder', async (req, res) => {
   try {
     const item = req.body
     item[0].increment = item[0].increment +1; 
@@ -405,7 +405,7 @@ app.post('/declineOrder', async (req, res) => {
   }
 });
 
-app.post('/removeAgent', async (req, res) => {
+app.post('/api/removeAgent', async (req, res) => {
   const agent = req.body
   const filePath = path.join(__dirname, 'users.json');
 
@@ -428,23 +428,6 @@ app.post('/removeAgent', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 })
-
-app.get('/loginDashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-app.get('/Dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-app.get('/modePaiement', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-app.get('/Paiement', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
