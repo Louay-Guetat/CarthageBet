@@ -14,7 +14,7 @@ const Paiement = () => {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const response = await fetch(process.env.REACT_APP_API_URL+'/getCurrentWallet');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/getCurrentWallet/${paiement_mode}`);
                 const result = await response.json();
             setWallet(result.currentWallet);
             }catch(error){

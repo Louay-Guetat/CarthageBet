@@ -177,7 +177,7 @@ app.get('/api/getManagerData', async (req, res) => {
 });
 
 let currentIndex = 0;
-let innerIndex = 0;
+let walletName = undefined;
 
 async function getWallet(init) {
   const filePath = path.join(__dirname, 'users.json');
@@ -185,43 +185,46 @@ async function getWallet(init) {
     const fileData = await fs.readFile(filePath, 'utf8');
     
     const dataArray = JSON.parse(fileData);
-
-    const walletsArray = dataArray.filter(user => user.role === 'agent').map(agent => agent.wallets);
-    wallets = walletsArray
-
-    if(wallets.length !== 0 ){
+    const agents = dataArray.filter(user => user.role === 'agent').map(agent => agent);
+    if (agents.length !== 0){
       if(init === 'init'){
-        return walletsArray[0][0].number
+        if(walletName){
+          const index = agents[currentIndex].wallets.find(wallet => wallet.name === walletName);
+          currentWallet = index.number
+          return index.number  
+        }
       }else{
-        if(currentIndex > walletsArray.length - 1){
-          innerIndex = 0;
+        if(currentIndex > agents.length - 1){
           currentIndex = 0;
         }else{
-  
-          if(innerIndex+1 > walletsArray[currentIndex].length - 1){
-            if(currentIndex + 1 > walletsArray.length -1 ){
-              currentIndex = 0;
-              innerIndex = 0;
-              return walletsArray[0][0].number
-            }else{
-              currentIndex++;
-              innerIndex = 0;
-              return walletsArray[currentIndex][innerIndex].number;  
+          if(currentIndex + 1 > agents.length - 1){
+            currentIndex = 0;
+            if(walletName){
+              const index = agents[currentIndex].wallets.find(wallet => wallet.name === walletName);
+              currentWallet = index.number
+              return index.number  
             }
           }else{
-            innerIndex++;
-            return walletsArray[currentIndex][innerIndex].number;
+            currentIndex++;
+            if(walletName){
+              const index = agents[currentIndex].wallets.find(wallet => wallet.name === walletName);
+              currentWallet = index.number
+              return index.number  
+            }
           }
         }
       }
+    }else{
+
     }
+    
   } catch (error) {
     console.error('Error reading data file:', error);
   }
 }
 
+
 let currentWallet = undefined;
-let walletName = undefined;
 
 async function initWallet (){
    currentWallet = await getWallet('init');
@@ -235,11 +238,16 @@ setInterval(async () => {
   } catch (error) {
     console.error('Error:', error);
   }
-}, 5 * 60 * 1000);
+}, 1000);
 
-app.get('/api/getCurrentWallet', (req, res) => {
-  res.send({currentWallet})
+app.get('/api/getCurrentWallet/:paiement_mode', (req, res) => {
+  const { paiement_mode } = req.params;
+  walletName = paiement_mode
+  getWallet()
+  console.log(currentWallet)
+  res.send({ currentWallet });
 });
+
 
 app.post('/api/updateSolde', async (req, res) => {
   const { username, solde } = req.body;
