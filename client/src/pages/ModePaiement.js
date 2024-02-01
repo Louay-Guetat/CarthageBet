@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/modePaiement.css';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const modes = [
   { name: 'SmartWalletEGP', image: 'smartwallet.png' },
@@ -24,6 +26,11 @@ const ModePaiement = () => {
   return (
     <div className="Mode-Paiement">
       <img id='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt='logo' />
+      <div className='goto'>
+          <a href='/contact' target='_blank'>
+              <span> اتصل بنا </span>
+          </a>
+      </div>
       <div className='content'>
         {[...Array(Math.ceil(modes.length / modesPerRow))].map((_, rowIndex) => (
           <div className="modes-row" key={rowIndex}>

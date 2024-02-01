@@ -18,6 +18,28 @@
   margin-top: 1rem;
   margin-left: 1rem;
 }
+.Paiement .goto {
+  display: flex;
+  align-items: center;
+  height: auto;
+  position: absolute;
+  top: 2.5%;
+  right: 1%;
+}
+.Paiement .goto a {
+  border: 1px solid #FFBD59;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.Paiement .goto a span {
+  color: #FFBD59;
+  font-size: 18px;
+}
+.Paiement .goto a:hover {
+  background-color: white;
+}
 .Paiement .content {
   margin: 2rem;
   padding: 2rem;

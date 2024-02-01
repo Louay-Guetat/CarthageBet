@@ -73,12 +73,8 @@ const Paiement = () => {
     const verifyNum = (thisNum) =>{
         const numNumber = parseInt(thisNum)
         if(!isNaN(numNumber)){
-            if(numNumber >= 10000000 && numNumber <= 99999999){
-                setNumError(undefined)
-                setNum(thisNum)
-            }else{
-                setNumError('الرجاء التحقق من رقم هاتف')
-            }
+            setNumError(undefined)
+            setNum(thisNum)
         }else{
             setNumError('الرجاء التحقق من رقم الهاتف')
         }
@@ -155,6 +151,11 @@ const Paiement = () => {
         <div className="Paiement">
             <ToastContainer />
             <img id='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt='logo' />
+            <div className='goto'>
+                <a href='/contact' target='_blank'>
+                    <span> اتصل بنا </span>
+                </a>
+            </div>
             <div className='content'>
                 <h2> {paiement_mode} </h2>
                 <div className='paiement-header'>

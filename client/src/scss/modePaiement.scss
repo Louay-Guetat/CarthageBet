@@ -17,6 +17,31 @@
         margin-left: 1rem;
     }
 
+    .goto{
+        display: flex;
+        align-items: center;
+        height: auto;
+        position: absolute;
+        top: 2.5%;
+        right: 1%;
+        a{
+            border: 1px solid #FFBD59;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            span{
+                color: #FFBD59;
+                font-size: 18px;
+            }
+
+            &:hover{
+                background-color: white;
+            }
+        }
+        
+    }
+
     .content{
         display: flex;
         .modes-card {

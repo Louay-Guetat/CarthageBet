@@ -14,6 +14,28 @@
   margin-top: 1rem;
   margin-left: 1rem;
 }
+.Mode-Paiement .goto {
+  display: flex;
+  align-items: center;
+  height: auto;
+  position: absolute;
+  top: 2.5%;
+  right: 1%;
+}
+.Mode-Paiement .goto a {
+  border: 1px solid #FFBD59;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.Mode-Paiement .goto a span {
+  color: #FFBD59;
+  font-size: 18px;
+}
+.Mode-Paiement .goto a:hover {
+  background-color: white;
+}
 .Mode-Paiement .content {
   display: flex;
 }
