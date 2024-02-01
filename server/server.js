@@ -240,11 +240,12 @@ setInterval(async () => {
   }
 }, 5 * 60 * 1000);
 
-app.get('/api/getCurrentWallet/:paiement_mode', (req, res) => {
-  const { paiement_mode } = req.params;
-  walletName = paiement_mode
-  getWallet()
-  console.log(currentWallet)
+app.get('/api/getCurrentWallet', (req, res) => {
+  const { paiement_mode } = req.query;
+  walletName = paiement_mode;
+  console.log(walletName)
+  getWallet(); 
+  console.log(currentWallet);
   res.send({ currentWallet });
 });
 
