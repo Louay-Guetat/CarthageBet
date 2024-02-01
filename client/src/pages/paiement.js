@@ -14,22 +14,25 @@ const Paiement = () => {
     useEffect(() => {
         const fetchData = async () =>{
             try{
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/getCurrentWallet?paiement_mode=${paiement_mode}`, {
-                    method: 'GET',
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/getCurrentWallet`, {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                      'Content-Type': 'application/json',
                     },
-                });
+                    body: JSON.stringify({ paiement_mode }),
+                  });
+            
                 const result = await response.json();
-            setWallet(result.currentWallet);
+                console.log(result)
+            setWallet(result.wallet);
             }catch(error){
                 console.log(error)
             }
         } 
         
         fetchData()
-    }, []); 
-    
+    }, [paiement_mode]); 
+
     const [id, setID] = useState('');
     const [idError, setIDError] = useState('')
 

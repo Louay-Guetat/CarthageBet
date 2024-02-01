@@ -177,7 +177,7 @@ app.get('/api/getManagerData', async (req, res) => {
 });
 
 let currentIndex = 0;
-let walletName = undefined;
+let walletName = 'Etisalat';
 
 async function getWallet(init) {
   const filePath = path.join(__dirname, 'users.json');
@@ -194,10 +194,7 @@ async function getWallet(init) {
           return index.number  
         }
       }else{
-        if(currentIndex > agents.length - 1){
-          currentIndex = 0;
-        }else{
-          if(currentIndex + 1 > agents.length - 1){
+          if(currentIndex > agents.length - 1){
             currentIndex = 0;
             if(walletName){
               const index = agents[currentIndex].wallets.find(wallet => wallet.name === walletName);
@@ -205,13 +202,11 @@ async function getWallet(init) {
               return index.number  
             }
           }else{
-            currentIndex++;
             if(walletName){
               const index = agents[currentIndex].wallets.find(wallet => wallet.name === walletName);
               currentWallet = index.number
               return index.number  
             }
-          }
         }
       }
     }else{
@@ -234,19 +229,18 @@ initWallet()
 
 setInterval(async () => {
   try {
+    currentIndex = currentIndex +1;
     currentWallet = await getWallet();
   } catch (error) {
     console.error('Error:', error);
   }
-}, 5 * 60 * 1000);
+}, 2000);
 
-app.get('/api/getCurrentWallet', (req, res) => {
-  const { paiement_mode } = req.query;
+app.post('/api/getCurrentWallet', async (req, res) => {
+  const { paiement_mode } = req.body;
   walletName = paiement_mode;
-  console.log(walletName)
-  getWallet(); 
-  console.log(currentWallet);
-  res.send({ currentWallet });
+  currentWallet = await getWallet(); 
+  res.send({'wallet':currentWallet});
 });
 
 
