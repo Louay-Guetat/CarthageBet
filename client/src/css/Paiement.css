@@ -52,8 +52,7 @@
   align-items: center;
 }
 .Paiement .content .paiement-header .paiement-method img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
 }
 .Paiement .content .paiement-header .paiement-method .vertical-line {
   width: 1px;

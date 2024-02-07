@@ -23,7 +23,6 @@ const Paiement = () => {
                   });
             
                 const result = await response.json();
-                console.log(result)
             setWallet(result.wallet);
             }catch(error){
                 console.log(error)
@@ -152,7 +151,7 @@ const Paiement = () => {
             <ToastContainer />
             <img id='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt='logo' />
             <div className='goto'>
-                <a href='/contact' target='_blank'>
+                <a href='/Contact'>
                     <span> اتصل بنا </span>
                 </a>
             </div>
@@ -184,9 +183,16 @@ const Paiement = () => {
                 <p>
                     قبل تقديم الطلب يرجى تحميل الأموال في غضون 10 دقائق بإستخدام معلومات الدفع المحددة أدناه
                 </p>
-                <p>
-                    رقم المحفظة: <span style={{color:'green'}}>{wallet}</span>
-                </p>
+                { paiement_mode === 'InstaPay EGP' ? (
+                    <p>
+                        عنوان الدفع : <span style={{color:'green'}}>{wallet}</span>
+                    </p>
+                ) : (
+                    <p>
+                        رقم المحفظة : <span style={{color:'green'}}>{wallet}</span>
+                    </p>)
+                }
+                
                 <div className='formulaire'>
                     <input type='text' placeholder='ID' onChange={(e) => verifyID(e.target.value)} />
                     <span className='error' style={ idError !== undefined ? {display : 'flex', color:'red', fontSize:'14px'} : {display: 'none'}} > {idError} </span>
@@ -194,7 +200,7 @@ const Paiement = () => {
                     <input type='text' placeholder='إسم المستخدم' onChange={(e) => verifyNom(e.target.value)} />
                     <span className='error' style={ nomError !== undefined ? {display : 'flex', color:'red', fontSize:'14px'} : {display: 'none'}} > {nomError} </span>
 
-                    <input type='text' placeholder='رقم الهاتف الذي تم التحويل منه' onChange={(e) => verifyNum(e.target.value)} />
+                    <input type='text' placeholder={ paiement_mode === 'InstaPay EGP' ? ('رقم المحفظة أو عنوان الدفع الذي تم التحويل منه') : ('رقم الهاتف الذي تم التحويل منه')} onChange={(e) => verifyNum(e.target.value)} />
                     <span className='error' style={ numError !== undefined ? {display : 'flex', color:'red', fontSize:'14px'} : {display: 'none'}} > {numError} </span>
 
                     <input type='text' placeholder='المبلغ' onChange={(e) => verifyMontant(e.target.value)} />
