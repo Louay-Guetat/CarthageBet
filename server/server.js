@@ -234,7 +234,7 @@ setInterval(async () => {
   } catch (error) {
     console.error('Error:', error);
   }
-}, 2000);
+}, 10 * 60 * 1000);
 
 app.post('/api/getCurrentWallet', async (req, res) => {
   const { paiement_mode } = req.body;
