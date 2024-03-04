@@ -6,121 +6,81 @@
     "solde": 50000
   },
   {
-    "username": "Louay",
-    "password": "123",
-    "solde": "5000",
+    "username": "Houssem",
+    "password": "123123",
+    "solde": 3432,
     "wallets": [
       {
         "name": "SmartWalletEGP",
-        "number": "SMART1111"
+        "number": "01019020448"
       },
       {
         "name": "We Pay",
-        "number": "WEP112222"
+        "number": "01026638272"
       },
       {
         "name": "Fawry",
-        "number": "FAW11333"
+        "number": "01095721209"
       },
       {
         "name": "Orange Payment",
-        "number": "ORAN114444"
+        "number": "01206003539"
       },
       {
         "name": "InstaPay EGP",
-        "number": "INSTA115555"
+        "number": "hoos2"
       },
       {
         "name": "BM Wallet EGP",
-        "number": "BM116666"
+        "number": "01024273109"
       },
       {
         "name": "Vodafone",
-        "number": "VODA11777"
+        "number": "01060536601"
       },
       {
         "name": "Etisalat",
-        "number": "ETI118888"
+        "number": "01026637815"
       }
     ],
     "role": "agent"
   },
   {
-    "username": "Amine",
-    "password": "123",
-    "solde": "5000",
+    "username": "Theking",
+    "password": "102030",
+    "solde": 32465,
     "wallets": [
       {
         "name": "SmartWalletEGP",
-        "number": "SMART2211"
+        "number": "01061845297"
       },
       {
         "name": "We Pay",
-        "number": "WEP2222"
+        "number": "01021942680"
       },
       {
         "name": "Fawry",
-        "number": "FAW22333"
+        "number": "01045910610"
       },
       {
         "name": "Orange Payment",
-        "number": "ORAN224444"
+        "number": "01276203645"
       },
       {
         "name": "InstaPay EGP",
-        "number": "INSta225555"
+        "number": "Bebo2023b"
       },
       {
         "name": "BM Wallet EGP",
-        "number": "BM226666"
+        "number": "01064081043"
       },
       {
         "name": "Vodafone",
-        "number": "VODA22777"
+        "number": "01021937763"
       },
       {
         "name": "Etisalat",
-        "number": "ETI228888"
-      }
-    ],
-    "role": "agent"
-  },
-  {
-    "username": "Test",
-    "password": "123",
-    "solde": "50",
-    "wallets": [
-      {
-        "name": "SmartWalletEGP",
-        "number": "554985489654865498+561253"
-      },
-      {
-        "name": "We Pay",
-        "number": "+96564984986565262"
-      },
-      {
-        "name": "Fawry",
-        "number": "6254651651gf65165165"
-      },
-      {
-        "name": "Orange Payment",
-        "number": "56f18994651f86z5465v"
-      },
-      {
-        "name": "InstaPay EGP",
-        "number": "9864v9865f1f9865z1"
-      },
-      {
-        "name": "BM Wallet EGP",
-        "number": "4695fs41986e5f"
-      },
-      {
-        "name": "Vodafone",
-        "number": "968418v6sf4z9v86"
-      },
-      {
-        "name": "Etisalat",
-        "number": "96841v8641s6"
+        "number": "01153916573"
       }
     ],
     "role": "agent"

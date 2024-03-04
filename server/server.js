@@ -355,7 +355,6 @@ app.post('/api/declineOrder', async (req, res) => {
   try {
     const item = req.body
     item[0].increment = item[0].increment +1; 
-
     const originalData = JSON.parse(await fs.readFile('data.json', 'utf8'));
     const users = JSON.parse(await fs.readFile('users.json', 'utf8'));
     const wallets = [] 
@@ -385,8 +384,8 @@ app.post('/api/declineOrder', async (req, res) => {
       }
 
       if(walletIndex+1 > wallets.length-1){
-        item[0].wallet = wallets[0].find(wallet => wallet.name = item[0].name).number
-        item[0].mode_paiement = wallets[0].find(wallet => wallet.name = item[0].name).name
+        item[0].wallet = wallets[0].find(wallet => wallet.name = item[0].mode_paiement).number
+        item[0].mode_paiement = wallets[0].find(wallet => wallet.name = item[0].mode_paiement).name
       }else{
         item[0].wallet = wallets[walletIndex+1][walletInnerIndex].number
         item[0].mode_paiement = wallets[walletIndex+1][walletInnerIndex].name
